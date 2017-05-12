@@ -13,6 +13,7 @@ var displayArray = [];
 var displayWord = "";
 var wordArr = "";
 
+
 // Game counters
 var winCount = 0;
 var lossCount = 0;
@@ -47,59 +48,50 @@ var lifesLeft = 6;
             getblanks();
             console.log(numBlanks);
 
+
             document.onkeyup = function (event) {
-                var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
-                console.log("user key pressed ", letterGuessed);
-                console.log("selected word ", selectedWord)
+            var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
 
-                for (var i = 0; i < selectedWord.length; i++) {
-                    var currentCharacter = selectedWord[i];
+            console.log("user key pressed ", letterGuessed);
+            console.log("selected word ", selectedWord)      
+             
 
-                    console.log("current user guess ", currentCharacter);
+                  rebuildWordView = function() {
+            // We start with an empty string.
+              var wordView = "";
 
-
-                    if (currentCharacter == letterGuessed){
-                        function typeletter() {
-                             document.getElementById("word").innerHTML = letterGuessed;
-                        
-
-                            //   var type = document.getElementById("word").str = letterGuessed[i];
-                            // var type = document.createElement("li");
-                            // var test = document.createTextNode (letterGuessed[i]);
-                            // type.appendChild(test);
-
-                            // var letter = document.getElementById("word");
-                            // letter.replaceChild(type, letter.childNodes [0]);
-                            
-                        }
-                        typeletter();
-                            //  var type = document.getElementById("word").replaceChild = letterGuessed[i];
-
-
-                        //replace dash with letter guessed
-                        console.log("correct!")
-
-                     
-                    } else {
-                        console.log("wrong");
-                        //subtract from guesses left
-                    }
-                    
+            // Loop through the letters of the word we are trying to guess..
+            for (var i = 0; i < this.selectedWord.length; i++) {
+            // If the current letter has been guessed, display that letter.
+                if (this.letterGuessed.indexOf(this.selectedWord[i]) !== -1) {
+                    wordView += this.selectedTheWord[i];
                 }
+                // If it hasn't been guessed, display a "_" instead.
+                else {
+                    wordView += "&nbsp;_&nbsp;";
+                }
+            }
 
+            // Update the page with the new string we built.
+            document.querySelector("#word").innerHTML = wordView;
+        }
+                
 
+        rebuildWordView();
 
+        }
 
+              
+          
+       
 
-                // if (letterGuessed === lettersInWord) {
+// if (letterGuessed === lettersInWord) {
                     
                 //     winCount++;
                 //     alert ("win" + winCount);
                 // } else {
                 //     alert("letter is not in the word");
                 // }
-            }
-
 
 
 // var isLetterinWord = selectedWord.indexOf(letterGuessed);
