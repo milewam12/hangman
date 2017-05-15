@@ -56,8 +56,8 @@ var lifesLeft = 6;
             console.log("selected word ", selectedWord)      
              
 
-
-                function rebuildWordView() {
+        }
+           function rebuildWordView() {
             // We start with an empty string.
               var wordView = "";
 
@@ -79,9 +79,6 @@ var lifesLeft = 6;
                 
 
         rebuildWordView();
-
-        }
-
               
           
        
